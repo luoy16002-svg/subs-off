@@ -261,7 +261,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
     const find = async (queries: string[], kind: EntityKind, max: number): Promise<Tag[]> => {
       const results = await Promise.all(
         queries.map((query) =>
-          qloo.tags(query, { forKind: kind, take: 15 }).then(
+          qloo.tags(query, { forKind: kind, take: 10 }).then(
             (result) => {
               rec.call(result.call);
               return result.data;
@@ -319,7 +319,8 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
       "signal.interests.entities": signalIds,
       "feature.explainability": true,
       "filter.exclude.entities": excludeIds,
-      take: slot === "food" ? 15 : 20,
+      // Enough to curate from, small enough to parse quickly inside a Worker.
+      take: slot === "food" ? 10 : 12,
     };
     let title = `Scout ${pack.name} ${SLOT_NOUN[slot]}`;
     let postFilter: ((entity: Entity) => boolean) | undefined;
