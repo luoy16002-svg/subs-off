@@ -8,3 +8,6 @@ public/assets/app.css
 public/assets/app.css.map
 qa/tmp/
 *.log
+public/assets/
+public/fonts/
+public/index.html

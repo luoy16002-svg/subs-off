@@ -1,0 +1,38 @@
+# Cloudflare Worker for Subs Off: the API runs in the Worker, the front end is
+# served by Workers Static Assets from ./public. See DEPLOY.md.
+name = "subs-off"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+
+[build]
+command = "npm run build"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+# Workers AI writes the short notes. Picks and ranks always come from Qloo.
+[ai]
+binding = "AI"
+
+[vars]
+# auto: live Qloo when the QLOO_API_KEY secret is set, offline sample data otherwise.
+QLOO_MODE = "auto"
+QLOO_BASE_URL = "https://hackathon.api.qloo.com"
+# Serve answers already recorded in fixtures/recorded.json before calling Qloo.
+QLOO_RECORDED_FIRST = "true"
+AI_MODE = "auto"
+AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+AI_FALLBACK_MODELS = "@cf/meta/llama-3.1-8b-instruct-fast"
+AI_DAILY_LIMIT = "300"
+
+# Optional: share cached Qloo answers across isolates.
+# npx wrangler kv namespace create QLOO_CACHE   then paste the id below.
+# [[kv_namespaces]]
+# binding = "QLOO_CACHE"
+# id = "<namespace id>"
+
+[observability]
+enabled = true

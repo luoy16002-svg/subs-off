@@ -35,6 +35,9 @@ function ordinal(n: number): string {
 
 export function buildWeek(picksBySlot: Partial<Record<Slot, Pick[]>>, level: Level, minutesPerDay: number): Day[] {
   const uses = new Map<string, number>();
+  // Where the learner is in the series: long episodes are split into sittings.
+  const seriesAt = new Map<string, { episode: number; minute: number }>();
+
   const resolve = (intent: Intent): Pick | undefined => {
     const list = picksBySlot[intent.slot] ?? [];
     if (intent.slot === "music") {
@@ -44,53 +47,44 @@ export function buildWeek(picksBySlot: Partial<Record<Slot, Pick[]>>, level: Lev
     return list[0];
   };
 
-  const doseFor = (pick: Pick, main: boolean): Dose => {
+  const doseFor = (pick: Pick, main: boolean): { dose: Dose; theme: string } => {
     const n = (uses.get(pick.id) ?? 0) + 1;
     uses.set(pick.id, n);
     const base = { pickId: pick.id, slot: pick.slot, main };
     switch (pick.slot) {
       case "series": {
         const length = pick.durationMin ?? 45;
-        if (length > minutesPerDay + 10) return { ...base, action: `Episode ${n}, in two sittings`, minutes: minutesPerDay };
-        return { ...base, action: `Episode ${n}`, minutes: length };
+        const at = seriesAt.get(pick.id) ?? { episode: 1, minute: 0 };
+        if (length <= minutesPerDay + 10) {
+          seriesAt.set(pick.id, { episode: at.episode + 1, minute: 0 });
+          return { dose: { ...base, action: `Episode ${at.episode}`, minutes: length }, theme: at.episode === 1 ? "Start the series" : `Episode ${ordinal(at.episode)}` };
+        }
+        const start = at.minute;
+        const end = Math.min(length, start + minutesPerDay);
+        seriesAt.set(pick.id, end >= length - 5 ? { episode: at.episode + 1, minute: 0 } : { episode: at.episode, minute: end });
+        const finish = end >= length - 5 ? length : end;
+        const action = start === 0 && finish === length ? `Episode ${at.episode}` : `Ep. ${at.episode}, minutes ${start} to ${finish}`;
+        return { dose: { ...base, action, minutes: finish - start }, theme: n === 1 ? "Start the series" : "Keep watching" };
       }
       case "film": {
         const length = pick.durationMin ?? 110;
-        if (length > minutesPerDay * 2 + 30) return { ...base, action: "First half tonight", minutes: Math.round(length / 2) };
-        return { ...base, action: "Movie night", minutes: length };
+        if (length > minutesPerDay * 2 + 30) return { dose: { ...base, action: "First half tonight", minutes: Math.round(length / 2) }, theme: "Movie night" };
+        return { dose: { ...base, action: "Movie night", minutes: length }, theme: "Movie night" };
       }
       case "music": {
-        if (n > 1) return { ...base, action: "Sing along to your favorite", minutes: 10, onTheGo: true };
+        if (n > 1) return { dose: { ...base, action: "Sing along to your favorite", minutes: 10, onTheGo: true }, theme: "Sing-along day" };
         const action = level === "beginner" ? "Three songs, twice" : level === "intermediate" ? "Learn one chorus" : "The album, on a walk";
-        return { ...base, action, minutes: level === "advanced" ? 35 : 10, onTheGo: true };
+        return { dose: { ...base, action, minutes: level === "advanced" ? 35 : 10, onTheGo: true }, theme: "Sing-along day" };
       }
       case "book": {
         const minutes = level === "beginner" ? 10 : 15;
-        if (n > 1) return { ...base, action: `${minutes} more minutes`, minutes };
-        return { ...base, action: level === "beginner" ? "First pages, out loud" : `Read ${minutes} minutes`, minutes };
+        if (n > 1) return { dose: { ...base, action: `${minutes} more minutes`, minutes }, theme: "Back to the book" };
+        return { dose: { ...base, action: level === "beginner" ? "First pages, out loud" : `Read ${minutes} minutes`, minutes }, theme: "A few pages" };
       }
       case "podcast":
-        return { ...base, action: n > 1 ? "Another episode" : "One episode", minutes: level === "beginner" ? 10 : 20, onTheGo: !main };
+        return { dose: { ...base, action: n > 1 ? "Another episode" : "One episode", minutes: level === "beginner" ? 10 : 20, onTheGo: !main }, theme: "Ear day" };
       case "food":
-        return { ...base, action: "Dinner out", minutes: 0 };
-    }
-  };
-
-  const themeFor = (dose: Dose): string => {
-    const n = uses.get(dose.pickId) ?? 1;
-    switch (dose.slot) {
-      case "series":
-        return n === 1 ? "Start the series" : `Episode ${ordinal(n)}`;
-      case "film":
-        return "Movie night";
-      case "book":
-        return n === 1 ? "A few pages" : "Back to the book";
-      case "podcast":
-        return "Ear day";
-      case "music":
-        return "Sing-along day";
-      case "food":
-        return "Order out loud";
+        return { dose: { ...base, action: "Dinner out", minutes: 0 }, theme: "Order out loud" };
     }
   };
 
@@ -100,17 +94,22 @@ export function buildWeek(picksBySlot: Partial<Record<Slot, Pick[]>>, level: Lev
     let theme = "Review day";
     const mainPick = spec.main.map(resolve).find((pick): pick is Pick => Boolean(pick));
     if (mainPick) {
-      const dose = doseFor(mainPick, true);
-      doses.push(dose);
-      theme = themeFor(dose);
+      const result = doseFor(mainPick, true);
+      doses.push(result.dose);
+      theme = result.theme;
     }
     const sidePick = spec.side.map(resolve).find((pick): pick is Pick => Boolean(pick) && pick!.id !== mainPick?.id);
     if (sidePick) {
       const main = doses[0];
-      const sideDose = doseFor(sidePick, false);
+      const snapshot = new Map(seriesAt);
+      const { dose: sideDose } = doseFor(sidePick, false);
       const fits = sideDose.onTheGo || !main || main.slot === "food" || main.minutes + sideDose.minutes <= minutesPerDay + 10;
       if (fits) doses.push(sideDose);
-      else uses.set(sidePick.id, (uses.get(sidePick.id) ?? 1) - 1);
+      else {
+        uses.set(sidePick.id, (uses.get(sidePick.id) ?? 1) - 1);
+        seriesAt.clear();
+        for (const [key, value] of snapshot) seriesAt.set(key, value);
+      }
     }
     const minutes = doses.filter((dose) => !dose.onTheGo).reduce((sum, dose) => sum + dose.minutes, 0);
     return { index, name, short, theme, doses, minutes };

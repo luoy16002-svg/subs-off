@@ -183,7 +183,7 @@ export const JAPANESE: CatalogItem[] = [
   {
     key: "ja/lamp", name: "Lamp", kind: "artist",
     original: ["ランプ", "ja"],
-    desc: "Tokyo trio making soft, bossa nova–tinged pop that many listeners find through playlists.",
+    desc: "Tokyo trio making soft pop with a bossa nova feel, a favorite on late-night playlists.",
     tags: ["city_pop", "indie_pop", "dreamy", "gentle"],
     pop: 0.45, cities: { tokyo: 0.5 }, fans: ["frank-ocean", "phoebe-bridgers"],
   },
