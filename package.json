@@ -1,0 +1,40 @@
+{
+  "name": "subs-off",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A taste-matched immersion planner for language learners, powered by Qloo's taste graph.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "start": "npm run build && tsx src/node-server.ts",
+    "build": "tsx scripts/build-web.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "record": "tsx scripts/record.ts",
+    "qloo:check": "tsx scripts/qloo-check.ts",
+    "shots": "tsx scripts/shots.ts",
+    "dev:worker": "wrangler dev --env offline --port 5437",
+    "deploy:dry": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.13.13"
+  },
+  "devDependencies": {
+    "@hono/node-server": "^2.1.3",
+    "@types/node": "^24.19.1",
+    "esbuild": "^0.28.2",
+    "lucide-preact": "^1.52.0",
+    "playwright": "^1.63.0",
+    "preact": "^11.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3",
+    "wrangler": "^4.147.0"
+  }
+}

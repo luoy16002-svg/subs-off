@@ -1,0 +1,175 @@
+import type { CatalogItem } from "./types";
+
+// Things learners already love, in English. They act as Qloo signals.
+export const SEEDS: CatalogItem[] = [
+  {
+    key: "severance", name: "Severance", kind: "tv_show", year: 2022, countries: ["United States"], rating: "TV-MA", minutes: 50,
+    desc: "Office workers at Lumon have their work memories surgically split from their private lives.",
+    tags: ["drama", "thriller", "science_fiction", "mystery", "psychological_thriller", "workplace", "dystopia", "surreal", "bureaucracy", "eerie", "slow_burn", "dark_comedy"],
+    pop: 0.93, by: "Dan Erickson",
+  },
+  {
+    key: "fleabag", name: "Fleabag", kind: "tv_show", year: 2016, finale: 2019, countries: ["United Kingdom"], rating: "TV-MA", minutes: 27,
+    desc: "A grieving Londoner talks straight to the camera while her love life and family come apart.",
+    tags: ["comedy", "dark_comedy", "drama", "grief", "fourth_wall", "family", "city_life", "witty"],
+    pop: 0.88, by: "Phoebe Waller-Bridge",
+  },
+  {
+    key: "phoebe-bridgers", name: "Phoebe Bridgers", kind: "artist",
+    desc: "Los Angeles singer-songwriter known for hushed, sad and funny songs like 'Motion Sickness' and 'Kyoto'.",
+    tags: ["indie_folk", "indie_rock", "singer_songwriter", "melancholic", "introspective"],
+    pop: 0.86,
+  },
+  {
+    key: "normal-people", name: "Normal People", kind: "book", year: 2018,
+    desc: "Two Irish teenagers drift in and out of each other's lives through school and university.",
+    tags: ["literary_fiction", "romance", "coming_of_age", "introspective", "melancholic", "school"],
+    pop: 0.85, by: "Sally Rooney",
+  },
+  {
+    key: "the-bear", name: "The Bear", kind: "tv_show", year: 2022, countries: ["United States"], rating: "TV-MA", minutes: 30,
+    desc: "A fine-dining chef comes home to run his late brother's chaotic Chicago sandwich shop.",
+    tags: ["drama", "comedy", "workplace", "cooking", "chef", "kitchen", "food", "family_business", "grief", "chaotic"],
+    pop: 0.9, by: "Christopher Storer",
+  },
+  {
+    key: "frank-ocean", name: "Frank Ocean", kind: "artist",
+    desc: "Singer-songwriter behind 'Channel Orange' and 'Blonde', known for slow, intimate R&B.",
+    tags: ["alternative_rnb", "rnb", "singer_songwriter", "introspective", "dreamy", "melancholic"],
+    pop: 0.9,
+  },
+  {
+    key: "spirited-away", name: "Spirited Away", kind: "movie", year: 2001, countries: ["Japan"], rating: "PG", minutes: 125,
+    original: ["千と千尋の神隠し", "ja"],
+    desc: "A girl working in a bathhouse for spirits tries to free her parents and find her way home.",
+    tags: ["animation", "anime", "fantasy", "coming_of_age", "family", "whimsical"],
+    pop: 0.95, by: "Hayao Miyazaki",
+  },
+  {
+    key: "kitchen-confidential", name: "Kitchen Confidential", kind: "book", year: 2000,
+    desc: "Anthony Bourdain's loud, funny memoir of life behind restaurant kitchen doors.",
+    tags: ["memoir", "food", "chef", "kitchen", "workplace", "witty", "chaotic"],
+    pop: 0.78, by: "Anthony Bourdain",
+  },
+  {
+    key: "bake-off", name: "The Great British Bake Off", kind: "tv_show", year: 2010, countries: ["United Kingdom"], rating: "TV-G", minutes: 60,
+    desc: "Amateur bakers compete in a tent in the English countryside, one gentle weekly challenge at a time.",
+    tags: ["reality", "cooking_show", "baking", "competition", "food", "cozy", "warm", "gentle"],
+    pop: 0.86,
+  },
+  {
+    key: "taylor-swift", name: "Taylor Swift", kind: "artist",
+    desc: "Singer-songwriter who moved from country to pop and writes diary-like story songs.",
+    tags: ["pop", "country_pop", "singer_songwriter", "romantic", "upbeat"],
+    pop: 0.99,
+  },
+  {
+    key: "pride-and-prejudice", name: "Pride and Prejudice", kind: "book", year: 1813,
+    desc: "Elizabeth Bennet and Mr. Darcy misjudge each other across a series of country balls and visits.",
+    tags: ["classic_literature", "romance", "period_drama", "witty", "romantic"],
+    pop: 0.95, by: "Jane Austen",
+  },
+  {
+    key: "gilmore-girls", name: "Gilmore Girls", kind: "tv_show", year: 2000, finale: 2007, countries: ["United States"], rating: "TV-PG", minutes: 44,
+    desc: "A fast-talking single mother and her daughter navigate life in a quirky Connecticut town.",
+    tags: ["comedy", "drama", "small_town", "family", "friendship", "coffee", "witty", "cozy", "warm"],
+    pop: 0.9, by: "Amy Sherman-Palladino",
+  },
+  {
+    key: "succession", name: "Succession", kind: "tv_show", year: 2018, finale: 2023, countries: ["United States"], rating: "TV-MA", minutes: 60,
+    desc: "The Roy siblings scheme against each other for control of their father's media empire.",
+    tags: ["drama", "dark_comedy", "satire", "family_business", "wealth", "power_struggle", "witty", "tense"],
+    pop: 0.92, by: "Jesse Armstrong",
+  },
+  {
+    key: "daft-punk", name: "Daft Punk", kind: "artist",
+    desc: "Parisian duo whose robot helmets and French house records shaped two decades of dance music.",
+    tags: ["electronic", "french_house", "disco", "dance", "upbeat", "stylish"],
+    pop: 0.93,
+  },
+  {
+    key: "orient-express", name: "Murder on the Orient Express", kind: "book", year: 1934,
+    desc: "Hercule Poirot works out which of the passengers on a snowbound train is a killer.",
+    tags: ["detective_fiction", "mystery", "whodunit", "classic_literature", "witty"],
+    pop: 0.9, by: "Agatha Christie",
+  },
+  {
+    key: "knives-out", name: "Knives Out", kind: "movie", year: 2019, countries: ["United States"], rating: "PG-13", minutes: 130,
+    desc: "A detective untangles a wealthy crime novelist's death and the family who wanted his money.",
+    tags: ["mystery", "comedy", "whodunit", "wealth", "family", "witty", "stylish"],
+    pop: 0.9, by: "Rian Johnson",
+  },
+  // More familiar favourites so custom learners can start offline too.
+  {
+    key: "breaking-bad", name: "Breaking Bad", kind: "tv_show", year: 2008, finale: 2013, countries: ["United States"], rating: "TV-MA", minutes: 47,
+    desc: "A chemistry teacher with a cancer diagnosis turns to making drugs to provide for his family.",
+    tags: ["drama", "crime", "thriller", "tense", "dark"],
+    pop: 0.97, by: "Vince Gilligan",
+  },
+  {
+    key: "the-office", name: "The Office", kind: "tv_show", year: 2005, finale: 2013, countries: ["United States"], rating: "TV-14", minutes: 22,
+    desc: "A mockumentary about the employees of a mid-sized paper company in Scranton.",
+    tags: ["comedy", "mockumentary", "workplace", "witty", "quirky"],
+    pop: 0.97,
+  },
+  {
+    key: "stranger-things", name: "Stranger Things", kind: "tv_show", year: 2016, finale: 2025, countries: ["United States"], rating: "TV-14", minutes: 55,
+    desc: "Kids in a small Indiana town face secret experiments and a monster from another dimension.",
+    tags: ["science_fiction", "horror", "mystery", "coming_of_age", "friendship", "small_town", "nostalgic"],
+    pop: 0.97,
+  },
+  {
+    key: "ted-lasso", name: "Ted Lasso", kind: "tv_show", year: 2020, finale: 2023, countries: ["United States"], rating: "TV-MA", minutes: 35,
+    desc: "An upbeat American football coach is hired to manage a struggling English soccer club.",
+    tags: ["comedy", "sports", "workplace", "friendship", "warm", "upbeat"],
+    pop: 0.9,
+  },
+  {
+    key: "arcane", name: "Arcane", kind: "tv_show", year: 2021, finale: 2024, countries: ["United States", "France"], rating: "TV-14", minutes: 40,
+    desc: "Two sisters end up on opposite sides of a war between a rich city and its undercity.",
+    tags: ["animation", "fantasy", "science_fiction", "family", "stylish", "tense"],
+    pop: 0.88,
+  },
+  {
+    key: "billie-eilish", name: "Billie Eilish", kind: "artist",
+    desc: "Los Angeles singer who writes whispery, dark pop songs with her brother Finneas.",
+    tags: ["alt_pop", "pop", "melancholic", "dreamy"],
+    pop: 0.97,
+  },
+  {
+    key: "radiohead", name: "Radiohead", kind: "artist",
+    desc: "Oxford band that moved from guitar rock to electronic experiments on 'Kid A' and beyond.",
+    tags: ["alt_rock", "indie_rock", "electronic", "melancholic", "introspective"],
+    pop: 0.92,
+  },
+  {
+    key: "mitski", name: "Mitski", kind: "artist",
+    desc: "Singer-songwriter known for intense, theatrical indie rock about loneliness and longing.",
+    tags: ["indie_rock", "indie_pop", "singer_songwriter", "melancholic", "introspective"],
+    pop: 0.85,
+  },
+  {
+    key: "harry-potter", name: "Harry Potter and the Philosopher's Stone", kind: "book", year: 1997,
+    desc: "An orphan learns on his eleventh birthday that he is a wizard and leaves for Hogwarts.",
+    tags: ["fantasy", "coming_of_age", "school", "young_adult", "whimsical"],
+    pop: 0.98, by: "J.K. Rowling",
+  },
+  {
+    key: "the-godfather", name: "The Godfather", kind: "movie", year: 1972, countries: ["United States"], rating: "R", minutes: 175,
+    desc: "The aging head of a New York crime family hands control to his reluctant youngest son.",
+    tags: ["crime", "drama", "family_business", "power_struggle", "tense"],
+    pop: 0.96, by: "Francis Ford Coppola",
+  },
+  {
+    key: "la-la-land", name: "La La Land", kind: "movie", year: 2016, countries: ["United States"], rating: "PG-13", minutes: 128,
+    desc: "A jazz pianist and an aspiring actress fall in love while chasing their dreams in Los Angeles.",
+    tags: ["musical", "romance", "drama", "music", "dreamy", "nostalgic"],
+    pop: 0.92,
+  },
+  {
+    key: "everything-everywhere", name: "Everything Everywhere All at Once", kind: "movie", year: 2022, countries: ["United States"], rating: "R", minutes: 139,
+    desc: "A laundromat owner in the middle of a tax audit is pulled into a fight across the multiverse.",
+    tags: ["science_fiction", "comedy", "family", "surreal", "quirky"],
+    pop: 0.95,
+  },
+];
