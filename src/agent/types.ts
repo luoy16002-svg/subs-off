@@ -52,6 +52,8 @@ export interface LearnerInput {
   likes?: LikeInput[];
   skips?: SkipInput[];
   previous?: PreviousPick[];
+  /** The city the previous week leaned toward, when the learner switched cities. */
+  previousCity?: string;
 }
 
 export interface ResolvedFavorite {

@@ -1146,6 +1146,38 @@ input[type="range"] {
   font-weight: 540;
   color: var(--ink-2);
 }
+.plan__facts li.city-switch {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 3px 3px 3px 12px;
+}
+.city-switch span {
+  margin-right: 4px;
+}
+.city-switch button {
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 13.5px;
+  font-weight: 560;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.city-switch button:hover:not(:disabled) {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+.city-switch button.is-on {
+  background: var(--sub);
+  color: var(--sub-ink);
+}
+.city-switch button:disabled:not(.is-on) {
+  opacity: 0.6;
+  cursor: progress;
+}
 .plan__usual {
   margin-top: 14px;
   font-size: 14.5px;

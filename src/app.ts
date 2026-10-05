@@ -19,7 +19,7 @@ interface AppOptions {
   services: (env: AppEnv) => Services;
 }
 
-const SEARCH_KINDS: EntityKind[] = ["tv_show", "movie", "artist", "book", "podcast"];
+export const SEARCH_KINDS: EntityKind[] = ["tv_show", "movie", "artist", "book", "podcast"];
 
 /** A tiny fixed-window limiter per client, per isolate. */
 class RateLimiter {

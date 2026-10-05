@@ -139,6 +139,14 @@ async function run() {
       await scrollTo(page, ".changes", 24);
       await shot(page, view, "16-replanned");
 
+      // Lean toward another city's taste
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.click(".city-switch button:has-text('Madrid')");
+      await page.waitForSelector(".city-switch button.is-on:has-text('Madrid')");
+      await page.waitForFunction(() => !document.querySelector(".plan.is-busy"));
+      await settle(page, 900);
+      await shot(page, view, "16b-city-switch");
+
       // Full-page reference of the finished plan
       await page.evaluate(() => window.scrollTo(0, 0));
       await shot(page, view, "17-plan-full", { fullPage: true });

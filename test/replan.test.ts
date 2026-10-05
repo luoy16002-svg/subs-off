@@ -69,6 +69,17 @@ describe("re-planning from likes and skips", () => {
     expect(influencedByLike.length).toBeGreaterThan(0);
   });
 
+  it("re-plans toward another city's taste and says why picks moved", async () => {
+    const first = await run(base);
+    const seen: QlooRequest[] = [];
+    const next = await run({ ...base, targetCity: "madrid", previousCity: "mexico-city", previous: previousOf(first) }, seen);
+    const series = seen.map((r) => canonicalParams(r.query)).find((p) => p["filter.type"] === "urn:entity:tv_show")!;
+    expect(series["signal.location.query"]).toBe("Madrid");
+    expect(next.learner.city.name).toBe("Madrid");
+    expect(next.changes.length).toBeGreaterThan(0);
+    for (const change of next.changes) expect(change.reason).toContain("Madrid audiences");
+  });
+
   it("treats 'too hard' as a request for something gentler", async () => {
     const sam = sampleById("sam")!.input;
     const first = await run(sam);

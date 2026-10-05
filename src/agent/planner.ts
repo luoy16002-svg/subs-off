@@ -587,7 +587,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
   const pickNames = [...picks.flatMap((p) => [p.name, p.localTitle ?? ""]), ...favorites.map((f) => f.name)].map(normalizeText);
   const usualList = pack.usualList.filter((title) => !pickNames.some((n) => n && (n.includes(normalizeText(title)) || normalizeText(title).includes(n))));
 
-  const changes = diffPicks(input, picks, likes.map((l) => l.id));
+  const changes = diffPicks(input, picks, likes.map((l) => l.id), input.previousCity ? city.name : undefined);
 
   const plan: Plan = {
     id: shortHash(`${JSON.stringify(input)}:${now().toISOString()}`),
@@ -620,7 +620,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
   return plan;
 }
 
-function diffPicks(input: LearnerInput, picks: Pick[], likedIds: string[]): Change[] {
+function diffPicks(input: LearnerInput, picks: Pick[], likedIds: string[], newCity?: string): Change[] {
   const previous = input.previous ?? [];
   if (previous.length === 0) return [];
   const skips = new Map((input.skips ?? []).map((s) => [s.id, s]));
@@ -634,7 +634,7 @@ function diffPicks(input: LearnerInput, picks: Pick[], likedIds: string[]): Chan
     for (let i = 0; i < pairs; i += 1) {
       const from = removed[i];
       const to = added[i];
-      let reason = "Moved up after your feedback.";
+      let reason = newCity ? `Ranks higher with ${newCity} audiences.` : "Moved up after your feedback.";
       const skip = from ? skips.get(from.id) : undefined;
       if (skip?.reason === "seen") reason = `You've already seen ${from!.name}.`;
       else if (skip?.reason === "too_hard") reason = `${from!.name} felt too hard, so this one is gentler.`;

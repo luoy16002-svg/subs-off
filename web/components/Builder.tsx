@@ -1,21 +1,11 @@
 import { IconArrowLeft, IconPlus, IconSearch, IconX } from "@tabler/icons-preact";
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { QUICK_PICKS } from "../../src/agent/samples";
 import type { FavoriteInput, LearnerInput, Level } from "../../src/agent/types";
-import type { EntityKind } from "../../src/qloo/types";
 import { searchFavorites, type AppConfig, type SearchResult } from "../lib/api";
 import { KIND_NAME, LEVELS } from "../lib/labels";
 import { STROKE } from "./visual";
 
-const QUICK_PICKS: Array<{ name: string; kind: EntityKind }> = [
-  { name: "The Bear", kind: "tv_show" },
-  { name: "Taylor Swift", kind: "artist" },
-  { name: "Severance", kind: "tv_show" },
-  { name: "Harry Potter and the Philosopher's Stone", kind: "book" },
-  { name: "Frank Ocean", kind: "artist" },
-  { name: "Gilmore Girls", kind: "tv_show" },
-  { name: "Knives Out", kind: "movie" },
-  { name: "Billie Eilish", kind: "artist" },
-];
 
 export function Builder({ config, initial, onBack, onSubmit }: { config: AppConfig; initial?: LearnerInput | undefined; onBack: () => void; onSubmit: (input: LearnerInput) => void }) {
   const firstLanguage = config.languages[0]!;

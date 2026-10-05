@@ -1,4 +1,17 @@
+import type { EntityKind } from "../qloo/types";
 import type { LearnerInput } from "./types";
+
+/** One-tap favorites offered in the builder. */
+export const QUICK_PICKS: Array<{ name: string; kind: EntityKind }> = [
+  { name: "The Bear", kind: "tv_show" },
+  { name: "Taylor Swift", kind: "artist" },
+  { name: "Severance", kind: "tv_show" },
+  { name: "Harry Potter and the Philosopher's Stone", kind: "book" },
+  { name: "Frank Ocean", kind: "artist" },
+  { name: "Gilmore Girls", kind: "tv_show" },
+  { name: "Knives Out", kind: "movie" },
+  { name: "Billie Eilish", kind: "artist" },
+];
 
 export interface SampleLearner {
   id: string;

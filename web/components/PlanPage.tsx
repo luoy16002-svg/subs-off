@@ -34,6 +34,7 @@ export interface PlanPageProps {
   onEdit: () => void;
   onHome: () => void;
   onRetry: () => void;
+  onCityChange: (slug: string) => void;
 }
 
 type Variant = "feature" | "half" | "third";
@@ -132,7 +133,7 @@ function Influence({ plan }: { plan: Plan }) {
   );
 }
 
-function Header({ learner, plan, config, onEdit, onHome }: { learner: LearnerInput; plan?: Plan | undefined; config: AppConfig; onEdit: () => void; onHome: () => void }) {
+function Header({ learner, plan, config, busy, onEdit, onHome, onCityChange }: { learner: LearnerInput; plan?: Plan | undefined; config: AppConfig; busy: boolean; onEdit: () => void; onHome: () => void; onCityChange: (slug: string) => void }) {
   const language = config.languages.find((l) => l.code === learner.language);
   const city = language?.cities.find((c) => c.slug === learner.targetCity)?.name ?? learner.targetCity;
   const level = LEVELS.find((l) => l.id === learner.level)?.name ?? learner.level;
@@ -153,9 +154,20 @@ function Header({ learner, plan, config, onEdit, onHome }: { learner: LearnerInp
       {plan ? <p class="plan__intro">{plan.intro}</p> : <p class="plan__intro is-pending">Asking Qloo about {learner.favorites.map((f) => f.name).join(", ")}.</p>}
       <ul class="plan__facts">
         <li>{level}</li>
-        <li>Taste of {city}</li>
         <li>{learner.minutesPerDay} min a day</li>
         {learner.homeCity ? <li>Lives in {learner.homeCity}</li> : null}
+        {language && language.cities.length > 1 ? (
+          <li class="city-switch" role="group" aria-label="Whose taste to lean toward">
+            <span>Taste of</span>
+            {language.cities.map((c) => (
+              <button type="button" aria-pressed={c.slug === learner.targetCity} class={c.slug === learner.targetCity ? "is-on" : ""} disabled={busy || !plan} onClick={() => onCityChange(c.slug)}>
+                {c.name}
+              </button>
+            ))}
+          </li>
+        ) : (
+          <li>Taste of {city}</li>
+        )}
       </ul>
       {plan && plan.usualList.length > 0 && series ? (
         <p class="plan__usual">
@@ -262,7 +274,7 @@ export function PlanPage(props: PlanPageProps) {
 
   return (
     <main id="main" class={`plan ${busy ? "is-busy" : ""}`}>
-      <Header learner={learner} plan={plan} config={config} onEdit={props.onEdit} onHome={props.onHome} />
+      <Header learner={learner} plan={plan} config={config} busy={busy || props.status === "loading"} onEdit={props.onEdit} onHome={props.onHome} onCityChange={props.onCityChange} />
 
       {props.status === "loading" ? <Working learner={learner} steps={props.steps} /> : null}
       {props.status === "error" && props.error ? <ErrorPanel error={props.error} onRetry={props.onRetry} onHome={props.onHome} /> : null}

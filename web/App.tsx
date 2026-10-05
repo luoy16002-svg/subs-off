@@ -207,6 +207,23 @@ export function App() {
     await run(input, true);
     setAppliedKey(key);
   };
+  const changeCity = async (slug: string) => {
+    if (!learner || !plan || slug === learner.targetCity) return;
+    const key = feedbackKey(feedback);
+    const next: LearnerInput = { ...learner, targetCity: slug };
+    setLearner(next);
+    await run(
+      {
+        ...next,
+        likes: Object.values(feedback.likes),
+        skips: Object.values(feedback.skips),
+        previous: plan.picks.map((p) => ({ slot: p.slot, id: p.id, name: p.name })),
+        previousCity: learner.targetCity,
+      },
+      true,
+    );
+    setAppliedKey(key);
+  };
   const clearFeedback = () => {
     // Drop pending changes only; feedback the current week already used stays.
     const kept: Feedback = { likes: {}, skips: {} };
@@ -297,6 +314,7 @@ export function App() {
         onEdit={() => go("build")}
         onHome={() => go("")}
         onRetry={() => void run(learner, false)}
+        onCityChange={(slug) => void changeCity(slug)}
       />
     );
   } else {

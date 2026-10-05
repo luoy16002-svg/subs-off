@@ -113,5 +113,7 @@ export function parseLearner(body: unknown, options: { offlineOnly: boolean }): 
   if (likes.length) learner.likes = likes;
   if (skips.length) learner.skips = skips;
   if (previous.length) learner.previous = previous;
+  const previousCity = text(raw.previousCity, 40);
+  if (previousCity && previousCity !== targetCity && pack.cities.some((c) => c.slug === previousCity)) learner.previousCity = previousCity;
   return { ok: true, value: learner };
 }
