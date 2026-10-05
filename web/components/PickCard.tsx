@@ -153,7 +153,7 @@ export function PickCard(props: {
                 </>
               ) : null}
               <dt>Source</dt>
-              <dd>{sourceLabel(evidence.source)}</dd>
+              <dd>{sourceLabel(evidence.source, undefined, evidence.cached)}</dd>
             </dl>
           </div>
         ) : null}

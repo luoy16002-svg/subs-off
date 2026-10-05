@@ -33,7 +33,7 @@ function Call({ call, names }: { call: QlooCallInfo; names: Map<string, string> 
     <li class="call">
       <p class="call__head">
         <code>GET {call.path}</code>
-        <span class={`badge badge--${call.source}`}>{sourceLabel(call.source, call.recordedAt)}</span>
+        <span class={`badge badge--${call.source}`}>{sourceLabel(call.source, call.recordedAt, call.cached)}</span>
       </p>
       <dl class="call__params">
         {entries.map(([key, value]) => {
@@ -48,7 +48,7 @@ function Call({ call, names }: { call: QlooCallInfo; names: Map<string, string> 
       </dl>
       <p class="call__foot">
         {call.results} result{call.results === 1 ? "" : "s"}
-        {call.source === "live" ? `, ${call.ms} ms` : ""}
+        {call.source === "live" && !call.cached ? `, ${call.ms} ms` : ""}
       </p>
     </li>
   );

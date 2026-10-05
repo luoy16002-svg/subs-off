@@ -7,6 +7,7 @@ export interface TransportResult {
   source: ResponseSource;
   ms: number;
   recordedAt?: string;
+  cached?: boolean;
 }
 
 export interface GetOptions {

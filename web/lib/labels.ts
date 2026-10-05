@@ -25,12 +25,10 @@ export const KIND_NAME: Partial<Record<EntityKind, string>> = {
   place: "Place",
 };
 
-export function sourceLabel(source: ResponseSource, recordedAt?: string): string {
+export function sourceLabel(source: ResponseSource, recordedAt?: string, cached?: boolean): string {
   switch (source) {
     case "live":
-      return "Live from Qloo";
-    case "cache":
-      return "Qloo, cached";
+      return cached ? "Qloo, cached" : "Live from Qloo";
     case "recorded":
       return recordedAt ? `Recorded from Qloo on ${new Date(recordedAt).toLocaleDateString(undefined, { month: "short", day: "numeric" })}` : "Recorded from Qloo";
     case "simulated":

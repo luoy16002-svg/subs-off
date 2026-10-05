@@ -35,6 +35,7 @@ export class QlooClient {
   #call(path: QlooPath, params: Record<string, string>, result: TransportResult, count: number): QlooCallInfo {
     const call: QlooCallInfo = { path, params, source: result.source, ms: result.ms, results: count };
     if (result.recordedAt) call.recordedAt = result.recordedAt;
+    if (result.cached) call.cached = true;
     return call;
   }
 

@@ -171,7 +171,7 @@ export interface Entity {
   priceLevel?: number;
 }
 
-export type ResponseSource = "live" | "recorded" | "simulated" | "cache";
+export type ResponseSource = "live" | "recorded" | "simulated";
 
 export interface QlooCallInfo {
   path: QlooPath;
@@ -180,4 +180,6 @@ export interface QlooCallInfo {
   ms: number;
   results: number;
   recordedAt?: string;
+  /** Served from this server's cache; `source` says where the answer first came from. */
+  cached?: boolean;
 }

@@ -85,17 +85,17 @@ export class CachingTransport implements QlooTransport {
     const key = requestKey(request);
     const started = this.#now();
     const memoryHit = this.#memory.get(key, started);
-    if (memoryHit) return { ...memoryHit, source: "cache", ms: 0 };
+    if (memoryHit) return { ...memoryHit, ms: 0, cached: true };
 
     const pending = this.#inflight.get(key);
-    if (pending) return pending.then((result) => ({ ...result, source: "cache" as const, ms: this.#now() - started }));
+    if (pending) return pending.then((result) => ({ ...result, ms: this.#now() - started, cached: true }));
 
     const work = (async () => {
       if (this.#kv) {
         try {
           const stored = (await this.#kv.get(`qloo:${shortHash(key)}`, "json")) as { body?: unknown; recordedAt?: string } | null;
           if (stored && stored.body !== undefined) {
-            const result: TransportResult = { body: stored.body, source: "cache", ms: this.#now() - started };
+            const result: TransportResult = { body: stored.body, source: "live", ms: this.#now() - started, cached: true };
             this.#memory.set(key, result, this.#ttlMs, this.#now());
             return result;
           }

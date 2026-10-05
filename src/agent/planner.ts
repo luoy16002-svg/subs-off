@@ -112,7 +112,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
   const homeCity = input.homeCity?.trim() || undefined;
   const trace: TraceStep[] = [];
   const notes: AgentNote[] = [];
-  const sources: Record<ResponseSource, number> = { live: 0, recorded: 0, simulated: 0, cache: 0 };
+  const sources: Record<ResponseSource | "cached", number> = { live: 0, recorded: 0, simulated: 0, cached: 0 };
 
   async function step<T>(tool: string, title: string, run: (rec: StepRecorder) => Promise<T>): Promise<T> {
     const rec = new StepRecorder();
@@ -124,7 +124,10 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
       if (!rec.detail) rec.detail = error instanceof Error ? error.message : "Something went wrong.";
       throw error;
     } finally {
-      for (const call of rec.calls) sources[call.source] += 1;
+      for (const call of rec.calls) {
+        sources[call.source] += 1;
+        if (call.cached) sources.cached += 1;
+      }
       const traceStep: TraceStep = {
         id: `s${trace.length + 1}`,
         tool,
@@ -304,6 +307,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
     locality?: string;
     filters: string[];
     source: ResponseSource;
+    cached: boolean;
   }
 
   const scoutSlot = (slot: Slot): Promise<Scouted | undefined> => {
@@ -348,11 +352,13 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
     return step("qloo.insights", title, async (rec) => {
       let usedLocation = Boolean(query["signal.location.query"]);
       let source: ResponseSource = "live";
+      let cached = false;
       let locality: string | undefined;
       const run = async (q: QlooQuery): Promise<Entity[]> => {
         const result = await qloo.insights(q);
         rec.call(result.call);
         source = result.call.source;
+        cached = Boolean(result.call.cached);
         locality = result.data.locality;
         return result.data.entities.filter((e) => isSafe(e) && !excludeIds.includes(e.id) && (!postFilter || postFilter(e)));
       };
@@ -396,7 +402,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
         ? `${entities.length} candidates. Top: ${listNames(top, 3)}.${rec.status === "adjusted" ? ` Widened beyond ${city.name} to find enough.` : ""}`
         : `No ${SLOT_NOUN[slot]} matched these filters.`;
       if (entities.length === 0) rec.status = "skipped";
-      const scouted: Scouted = { slot, entities, usedLocation, filters, source };
+      const scouted: Scouted = { slot, entities, usedLocation, filters, source, cached };
       if (usedLocation) scouted.locality = locality ?? city.name;
       return scouted;
     });
@@ -539,6 +545,7 @@ export async function runAgent(input: LearnerInput, deps: AgentDeps, emit: (even
           sharedTags,
           filters: s?.filters ?? [],
           source: s?.source ?? "live",
+          ...(s?.cached ? { cached: true } : {}),
           ...(entity.affinity !== undefined ? { affinity: entity.affinity } : {}),
           ...(entity.popularity !== undefined ? { popularity: entity.popularity } : {}),
           ...(s?.locality ? { locality: s.locality } : {}),

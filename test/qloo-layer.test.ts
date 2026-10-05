@@ -209,9 +209,10 @@ describe("fixtures and caching", () => {
     const cache = new CachingTransport(inner);
     const request = { path: "/search" as const, query: { query: "a", take: 2 } };
     const [first, second] = await Promise.all([cache.get(request), cache.get({ path: "/search", query: { take: 2, query: "a" } })]);
-    expect(first.source).toBe("live");
-    expect(second.source).toBe("cache");
-    expect((await cache.get(request)).source).toBe("cache");
+    expect(first).toMatchObject({ source: "live" });
+    expect(first.cached).toBeUndefined();
+    expect(second).toMatchObject({ source: "live", cached: true });
+    expect(await cache.get(request)).toMatchObject({ source: "live", cached: true });
     expect(calls).toBe(1);
   });
 });

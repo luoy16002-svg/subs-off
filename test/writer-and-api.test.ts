@@ -112,6 +112,17 @@ describe("HTTP API", () => {
     expect(body.notes).toBeUndefined();
   });
 
+  it("keeps the true source when an answer comes from the cache", async () => {
+    const fresh = createServices({});
+    const freshApp = createApp({ services: () => fresh });
+    const ask = async () => (await (await freshApp.request("/api/plan?format=json", { method: "POST", body: JSON.stringify(maya) })).json()).plan;
+    const first = await ask();
+    const second = await ask();
+    expect(first.sources.cached).toBe(0);
+    expect(second.sources.cached).toBeGreaterThan(5);
+    expect(second.picks[0].evidence).toMatchObject({ source: "simulated", cached: true });
+  });
+
   it("streams agent steps, then the plan, then done", async () => {
     const response = await app.request("/api/plan", { method: "POST", body: JSON.stringify(maya), headers: { "content-type": "application/json" } });
     expect(response.headers.get("content-type")).toContain("application/x-ndjson");

@@ -81,6 +81,7 @@ export interface PickEvidence {
   locality?: string;
   filters: string[];
   source: ResponseSource;
+  cached?: boolean;
 }
 
 export interface Pick {
@@ -172,7 +173,7 @@ export interface Plan {
   notes: AgentNote[];
   changes: Change[];
   trace: TraceStep[];
-  sources: Record<ResponseSource, number>;
+  sources: Record<ResponseSource | "cached", number>;
   mode: "live" | "fixtures";
   writer: "templates" | "workers-ai";
   intro: string;
