@@ -86,7 +86,7 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     document.title = route.name === "week" && learner ? `${learner.name ? `${learner.name}'s week` : "Your week"} | Subs Off` : route.name === "build" ? "Build your week | Subs Off" : "Subs Off | Your taste, in another language";
   }, [route.name]);
 
@@ -160,7 +160,7 @@ export function App() {
   };
 
   const start = (input: LearnerInput) => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     setLearner(input);
     setFeedback(EMPTY);
     setAppliedKey(feedbackKey(EMPTY));

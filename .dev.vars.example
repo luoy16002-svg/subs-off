@@ -1,0 +1,6 @@
+# Copy to .dev.vars for live mode in `npm run dev`, `npm run record` and
+# `npm run qloo:check`. .dev.vars is git-ignored; never commit a real key.
+QLOO_API_KEY=
+# Optional overrides
+# QLOO_BASE_URL=https://hackathon.api.qloo.com
+# QLOO_MODE=auto
