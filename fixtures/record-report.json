@@ -1,0 +1,721 @@
+{
+  "baseUrl": "https://hackathon.api.qloo.com",
+  "startedAt": "2026-10-06T06:34:30.158Z",
+  "learners": [
+    {
+      "learner": "Maya",
+      "language": "Spanish",
+      "picks": [
+        {
+          "slot": "series",
+          "name": "The Envoys",
+          "localTitle": "\"Los enviados\"",
+          "rank": 1,
+          "of": 9,
+          "contributors": 3
+        },
+        {
+          "slot": "film",
+          "name": "Nightmare Alley",
+          "localTitle": "\"El callejón de las almas perdidas\"",
+          "rank": 1,
+          "of": 11,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Helado Negro",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "The Marías",
+          "rank": 2,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Kali Uchis",
+          "rank": 3,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "book",
+          "name": "The Sickness",
+          "rank": 1,
+          "of": 6,
+          "contributors": 3
+        },
+        {
+          "slot": "food",
+          "name": "Taqueria Moran",
+          "rank": 1,
+          "of": 10,
+          "contributors": 3
+        }
+      ],
+      "taste": {
+        "tags": [
+          {
+            "id": "urn:tag:backdrop:qloo:mexico_city",
+            "name": "Mexico City",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:specialty_dish:place:fish_chips",
+            "name": "Fish Chips",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:motif:qloo:poverty",
+            "name": "Poverty",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:subgenre:qloo:media_commentary",
+            "name": "Media Commentary",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:inclusivity:place:identifies_as_women_owned",
+            "name": "Identifies as women-owned",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:motif:qloo:nostalgia",
+            "name": "Nostalgia",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:cost_description:place:inexpensive",
+            "name": "Inexpensive",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:genre:brand:entertainment",
+            "name": "Entertainment",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:style:qloo:confessional",
+            "name": "Confessional",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:specialty_dish:place:guacamole",
+            "name": "Guacamole",
+            "weight": 1
+          }
+        ],
+        "source": "qloo"
+      },
+      "notes": [
+        "No Spanish-language podcasts matched this week."
+      ],
+      "steps": [
+        {
+          "title": "Match your favorites in Qloo",
+          "status": "ok",
+          "detail": "Matched 4 of 4: Severance (series), Phoebe Bridgers (artist), Normal People (book), Fleabag (series)."
+        },
+        {
+          "title": "Read your taste across domains",
+          "status": "ok",
+          "detail": "Qloo's taste analysis point to mexico city, fish chips, poverty, media commentary and identifies as women-owned."
+        },
+        {
+          "title": "Find Spanish-language genres in Qloo's tags",
+          "status": "ok",
+          "detail": "Found music: Latin Alternative, Alternative Latin, Latin Alternative, Latin Alternative and 2 more; books: Latin American Literature, Latin American Literature, Mexican Literature and 1 more; podcasts: Spanish Language Learning and Spanish Learning; food: Mexican restaurant, Mexican Grill, Mexican Cantina and 1 more."
+        },
+        {
+          "title": "Scout Spanish artists",
+          "status": "ok",
+          "detail": "12 candidates. Top: Helado Negro, The Marías and Kali Uchis."
+        },
+        {
+          "title": "Scout series from Spain and Latin America",
+          "status": "ok",
+          "detail": "9 candidates. Top: The Envoys, Cable Girls and The House of Flowers."
+        },
+        {
+          "title": "Scout Spanish books",
+          "status": "ok",
+          "detail": "6 candidates. Top: The Sickness, Of Love and Shadows and The Old Gringo."
+        },
+        {
+          "title": "Scout films from Spain and Latin America",
+          "status": "ok",
+          "detail": "11 candidates. Top: Nightmare Alley, Life Itself and Roma."
+        },
+        {
+          "title": "Scout places to eat in Chicago",
+          "status": "ok",
+          "detail": "10 candidates. Top: Taqueria Moran, Doña Tola and Little Bad Wolf."
+        },
+        {
+          "title": "Scout Spanish podcasts",
+          "status": "skipped",
+          "detail": "No podcasts matched these filters."
+        },
+        {
+          "title": "Choose picks for an intermediate learner",
+          "status": "ok",
+          "detail": "7 picks. Qloo's ranking leads; level fit and variety break close calls."
+        },
+        {
+          "title": "Lay out seven days",
+          "status": "ok",
+          "detail": "About 25 minutes a day at your desk or on the couch, plus listening on the go. Same series all week, so the voices get familiar."
+        }
+      ]
+    },
+    {
+      "learner": "Leo",
+      "language": "Japanese",
+      "picks": [
+        {
+          "slot": "series",
+          "name": "Carole & Tuesday",
+          "localTitle": "\"キャロル＆チューズデイ\"",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "film",
+          "name": "Shoplifters",
+          "localTitle": "\"万引き家族\"",
+          "rank": 1,
+          "of": 11,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "CHAI",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Ayano Kaneko",
+          "rank": 2,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "hakushi hasegawa",
+          "rank": 4,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "book",
+          "name": "In the Miso Soup",
+          "rank": 1,
+          "of": 11,
+          "contributors": 3
+        },
+        {
+          "slot": "food",
+          "name": "Dinings",
+          "rank": 1,
+          "of": 10,
+          "contributors": 3
+        }
+      ],
+      "taste": {
+        "tags": [
+          {
+            "id": "urn:tag:credit_card:place:discover",
+            "name": "Discover",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:inclusivity:place:identifies_as_women_owned",
+            "name": "Identifies as women-owned",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:theme:qloo:art_and_culture",
+            "name": "Art And Culture",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:motif:qloo:grief",
+            "name": "Grief",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:specialty_dish:place:kale_salad",
+            "name": "Kale Salad",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:genre:place:restaurant:bar",
+            "name": "Bar",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:cost_description:place:inexpensive",
+            "name": "Inexpensive",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:amenity:qloo:indoor_hot_tub",
+            "name": "Indoor Hot Tub",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:genre:brand:fashion",
+            "name": "Fashion",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:style:qloo:artistically_rich",
+            "name": "Artistically Rich",
+            "weight": 1
+          }
+        ],
+        "source": "qloo"
+      },
+      "notes": [
+        "No Japanese-language podcasts matched this week."
+      ],
+      "steps": [
+        {
+          "title": "Match your favorites in Qloo",
+          "status": "ok",
+          "detail": "Matched 4 of 4: The Bear (series), Frank Ocean (artist), Spirited Away (film), Kitchen Confidential: Adventures in the Culinary Underbelly (book). Closest match used for \"Kitchen Confidential\"."
+        },
+        {
+          "title": "Read your taste across domains",
+          "status": "ok",
+          "detail": "Qloo's taste analysis point to discover, identifies as women-owned, art and culture, grief and kale salad."
+        },
+        {
+          "title": "Find Japanese-language genres in Qloo's tags",
+          "status": "ok",
+          "detail": "Found music: J-pop, JPop, Japanese Pop, Jpop and 2 more; books: Japanese Literature, Japanese Literature, Japanese Literature and 1 more; podcasts: Japanese Language Learning; food: Japanese restaurant, Japanese Family Restaurant, Authentic Japanese restaurant and 1 more."
+        },
+        {
+          "title": "Scout films from Japan",
+          "status": "ok",
+          "detail": "11 candidates. Top: Shoplifters, Mirai and I Want to Eat Your Pancreas."
+        },
+        {
+          "title": "Scout Japanese books",
+          "status": "ok",
+          "detail": "11 candidates. Top: In the Miso Soup, Life Ceremony and Earthlings."
+        },
+        {
+          "title": "Scout series from Japan",
+          "status": "ok",
+          "detail": "12 candidates. Top: Carole & Tuesday, The Makanai: Cooking for the Maiko House and Aggretsuko."
+        },
+        {
+          "title": "Scout Japanese artists",
+          "status": "ok",
+          "detail": "12 candidates. Top: CHAI, Ayano Kaneko and 椎名林檎."
+        },
+        {
+          "title": "Scout Japanese podcasts",
+          "status": "skipped",
+          "detail": "No podcasts matched these filters."
+        },
+        {
+          "title": "Scout places to eat in London",
+          "status": "ok",
+          "detail": "10 candidates. Top: Dinings, Shochu Lounge and Endo at the Rotunda."
+        },
+        {
+          "title": "Choose picks for a beginner learner",
+          "status": "ok",
+          "detail": "7 picks. Qloo's ranking leads; level fit and variety break close calls."
+        },
+        {
+          "title": "Lay out seven days",
+          "status": "ok",
+          "detail": "About 21 minutes a day at your desk or on the couch, plus listening on the go. Same series all week, so the voices get familiar."
+        }
+      ]
+    },
+    {
+      "learner": "Priya",
+      "language": "Korean",
+      "picks": [
+        {
+          "slot": "series",
+          "name": "Extraordinary You",
+          "localTitle": "\"어쩌다 발견한 하루\"",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "film",
+          "name": "On Your Wedding Day",
+          "localTitle": "\"너의 결혼식\"",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "10cm",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Standing Egg",
+          "rank": 2,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "김예림",
+          "rank": 4,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "book",
+          "name": "At Least We Can Apologize (Library of Korean Literature, 07)",
+          "rank": 1,
+          "of": 4,
+          "contributors": 3
+        },
+        {
+          "slot": "food",
+          "name": "Korean Village Restaurant",
+          "rank": 1,
+          "of": 10,
+          "contributors": 3
+        }
+      ],
+      "taste": {
+        "tags": [
+          {
+            "id": "urn:tag:keyword:qloo:streaming",
+            "name": "Streaming",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:specialty_dish:place:chopped_salad",
+            "name": "Chopped Salad",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:specialty_dish:place:fresh_pasta",
+            "name": "Fresh Pasta",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:specialty_dish:place:charcuterie_board",
+            "name": "Charcuterie Board",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:inclusivity:place:identifies_as_women_owned",
+            "name": "Identifies as women-owned",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:keyword:qloo:pop_music",
+            "name": "Pop Music",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:subgenre:qloo:pop",
+            "name": "Pop",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:character:qloo:vibrant",
+            "name": "Vibrant",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:subgenre:qloo:live_performance",
+            "name": "Live Performance",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:plot:qloo:spectacular",
+            "name": "Spectacular",
+            "weight": 1
+          }
+        ],
+        "source": "qloo"
+      },
+      "notes": [
+        "Few books matched with Seoul weighting, so the agent widened the search beyond Seoul.",
+        "No Korean-language podcasts matched this week."
+      ],
+      "steps": [
+        {
+          "title": "Match your favorites in Qloo",
+          "status": "ok",
+          "detail": "Matched 4 of 4: The Great British Baking Show (series), Taylor Swift (artist), Pride and Prejudice (book), Gilmore Girls (series). Closest match used for \"The Great British Bake Off\"."
+        },
+        {
+          "title": "Read your taste across domains",
+          "status": "ok",
+          "detail": "Qloo's taste analysis point to streaming, chopped salad, fresh pasta, charcuterie board and identifies as women-owned."
+        },
+        {
+          "title": "Find Korean-language genres in Qloo's tags",
+          "status": "ok",
+          "detail": "Found music: Kpop, korean indie, Korean Indie, Korean Indie and 2 more; books: Korean Literature; podcasts: Korean and Korea; food: Korean restaurant, Korean beef restaurant, Korean barbecue restaurant and 1 more."
+        },
+        {
+          "title": "Scout Korean artists",
+          "status": "ok",
+          "detail": "12 candidates. Top: 10cm, Standing Egg and hyukoh."
+        },
+        {
+          "title": "Scout films from South Korea",
+          "status": "ok",
+          "detail": "12 candidates. Top: On Your Wedding Day, Josée and Sweet & Sour."
+        },
+        {
+          "title": "Scout series from South Korea",
+          "status": "ok",
+          "detail": "12 candidates. Top: Extraordinary You, Still 17 and Clean with Passion for Now."
+        },
+        {
+          "title": "Scout Korean podcasts",
+          "status": "skipped",
+          "detail": "No podcasts matched these filters."
+        },
+        {
+          "title": "Scout Korean books",
+          "status": "adjusted",
+          "detail": "4 candidates. Top: At Least We Can Apologize (Library of Korean Literature, 07), Three Generations and Europa (Yeoyu, #3). Widened beyond Seoul to find enough."
+        },
+        {
+          "title": "Scout places to eat in Toronto",
+          "status": "ok",
+          "detail": "10 candidates. Top: Korean Village Restaurant, Woosuk Pocha and Kobi Korean BBQ."
+        },
+        {
+          "title": "Choose picks for a beginner learner",
+          "status": "ok",
+          "detail": "7 picks. Qloo's ranking leads; level fit and variety break close calls."
+        },
+        {
+          "title": "Lay out seven days",
+          "status": "ok",
+          "detail": "About 19 minutes a day at your desk or on the couch, plus listening on the go. Same series all week, so the voices get familiar."
+        }
+      ]
+    },
+    {
+      "learner": "Sam",
+      "language": "French",
+      "picks": [
+        {
+          "slot": "series",
+          "name": "Call My Agent!",
+          "localTitle": "\"Dix pour cent\"",
+          "rank": 1,
+          "of": 7,
+          "contributors": 3
+        },
+        {
+          "slot": "film",
+          "name": "Guardians of the Galaxy Vol. 3",
+          "localTitle": "\"Les Gardiens de la Galaxie Vol. 3\"",
+          "rank": 1,
+          "of": 11,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Vendredi sur Mer",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Yelle",
+          "rank": 2,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "music",
+          "name": "Sébastien Tellier",
+          "rank": 3,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "book",
+          "name": "Empire of the Ants (La Saga des Fourmis, #1)",
+          "localTitle": "Les Fourmis",
+          "rank": 1,
+          "of": 12,
+          "contributors": 3
+        },
+        {
+          "slot": "food",
+          "name": "Le District",
+          "rank": 1,
+          "of": 10,
+          "contributors": 3
+        }
+      ],
+      "taste": {
+        "tags": [
+          {
+            "id": "urn:tag:motif:qloo:comics",
+            "name": "Comics",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:cuisine:qloo:italian_american",
+            "name": "Italian American",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:motif:qloo:star_crossed_lovers",
+            "name": "Star-Crossed Lovers",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:amenity:qloo:patios",
+            "name": "Patios",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:inclusivity:place:identifies_as_women_owned",
+            "name": "Identifies as women-owned",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:decor:qloo:upscale_casual",
+            "name": "Upscale Casual",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:theme:qloo:disappearance",
+            "name": "Disappearance",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:cost_description:place:very_expensive",
+            "name": "Very expensive",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:ambience:qloo:retro",
+            "name": "Retro",
+            "weight": 1
+          },
+          {
+            "id": "urn:tag:genre:brand:entertainment",
+            "name": "Entertainment",
+            "weight": 1
+          }
+        ],
+        "source": "qloo"
+      },
+      "notes": [
+        "No French-language podcasts matched this week."
+      ],
+      "steps": [
+        {
+          "title": "Match your favorites in Qloo",
+          "status": "ok",
+          "detail": "Matched 4 of 4: Succession (series), Daft Punk (artist), Murder on the Orient Express (book), Knives Out (film)."
+        },
+        {
+          "title": "Read your taste across domains",
+          "status": "ok",
+          "detail": "Qloo's taste analysis point to comics, italian american, star-crossed lovers, patios and identifies as women-owned."
+        },
+        {
+          "title": "Find French-language genres in Qloo's tags",
+          "status": "ok",
+          "detail": "Found music: French Pop, french pop, French Pop, French Pop and 2 more; books: French Literature, French Literature and French Literature; podcasts: French and French Language; food: French restaurant, French Bar, French steakhouse restaurant and 1 more."
+        },
+        {
+          "title": "Scout series from France, Belgium and Switzerland",
+          "status": "ok",
+          "detail": "7 candidates. Top: Call My Agent!, Lupin and Arcane."
+        },
+        {
+          "title": "Scout films from France, Belgium and Switzerland",
+          "status": "ok",
+          "detail": "11 candidates. Top: Guardians of the Galaxy Vol. 3, Mission: Impossible - Fallout and Maleficent: Mistress of Evil."
+        },
+        {
+          "title": "Scout French artists",
+          "status": "ok",
+          "detail": "12 candidates. Top: Vendredi sur Mer, Yelle and Sébastien Tellier."
+        },
+        {
+          "title": "Scout French books",
+          "status": "ok",
+          "detail": "12 candidates. Top: Empire of the Ants (La Saga des Fourmis, #1), The Seventh Function of Language and Making Love."
+        },
+        {
+          "title": "Scout French podcasts",
+          "status": "skipped",
+          "detail": "No podcasts matched these filters."
+        },
+        {
+          "title": "Scout places to eat in New York",
+          "status": "ok",
+          "detail": "10 candidates. Top: Le District, Bar Suzette and Café Carlyle."
+        },
+        {
+          "title": "Choose picks for an advanced learner",
+          "status": "ok",
+          "detail": "7 picks. Qloo's ranking leads; level fit and variety break close calls."
+        },
+        {
+          "title": "Lay out seven days",
+          "status": "ok",
+          "detail": "About 35 minutes a day at your desk or on the couch, plus listening on the go. Same series all week, so the voices get familiar."
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "entries": 145,
+    "insightCalls": 58,
+    "explainedCalls": 58,
+    "explainedCallsWithParsedContributions": 40,
+    "tagSearches": 41,
+    "tagSearchesWithParentTypes": 41,
+    "failures": [],
+    "sampleExplainability": {
+      "signal.interests.entities": [
+        {
+          "entity_id": "65EAC55F-6FDC-452D-A633-A9E9F2BBD45E",
+          "score": 0.36719388481152493
+        },
+        {
+          "entity_id": "E12149D8-3108-4019-8881-3F932AB67D38",
+          "score": 0.32481030673369177
+        },
+        {
+          "entity_id": "012EF80C-B187-4ECB-9C3D-9CA5228B503C",
+          "score": 0.3079958084547832
+        }
+      ]
+    }
+  }
+}
