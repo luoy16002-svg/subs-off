@@ -2,6 +2,8 @@
 
 Your taste, in another language.
 
+**Try it:** https://subs-off.fuddleyu.workers.dev (no sign-up; four sample learners start a full week in one click)
+
 Subs Off plans a week of series, films, music, books, podcasts and one restaurant in the language you're learning, picked from four things you already love. The picks, their ranking and the reasons behind them come from [Qloo](https://www.qloo.com)'s taste graph. A small agent does the asking, checks what comes back, widens the search when results run thin, and re-plans when you like or skip something.
 
 ![A week in Spanish built from Severance, Phoebe Bridgers, Normal People and Fleabag](qa/desktop-10-plan-week.png)
